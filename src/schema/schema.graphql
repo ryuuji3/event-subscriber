@@ -1,3 +1,16 @@
 type Query {
-    greeting(name: String!): String!
+    events: [Event]
+}
+
+type Mutation {
+    publish(payload: JSON!): Event!
+}
+
+scalar JSON
+scalar Timestamp
+
+type Event {
+    created: Timestamp!
+    lastUpdated: Timestamp!
+    data: JSON!
 }
